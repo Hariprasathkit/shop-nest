@@ -194,14 +194,16 @@ html.dark .navbar-brand {
   .mobile-menu {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 72px;
     left: 0;
     right: 0;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
     background: var(--overlay-bg);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
-    padding: 1rem 5%;
+    padding: 1rem;
     transform: translateY(-10px);
     opacity: 0;
     pointer-events: none;
@@ -219,6 +221,8 @@ html.dark .navbar-brand {
   }
 
   .mobile-nav-link {
+    display: flex;
+    width: 100%;
     color: var(--text-primary);
     text-decoration: none;
     font-size: 1.1rem;
@@ -226,7 +230,15 @@ html.dark .navbar-brand {
     border-bottom: 1px solid var(--border-color);
   }
 
+  .mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
   .mobile-action-btn.primary {
+    min-height: 46px;
     padding: 0.75rem;
     background: var(--primary-color);
     color: white;
@@ -234,6 +246,7 @@ html.dark .navbar-brand {
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 500;
+    text-decoration: none;
   }
 }
 
