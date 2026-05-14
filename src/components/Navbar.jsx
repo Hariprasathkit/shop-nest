@@ -89,24 +89,24 @@ const Navbar = () => {
             </button>
 
             {isAuthenticated ? (
-              <NavLink to="/support" className="action-button cart-action-btn" aria-label="Support">
+              <NavLink to="/support" className="action-button cart-action-btn desktop-action" aria-label="Support">
                 <Headphones size={20} />
               </NavLink>
             ) : null}
 
             {isAdmin ? (
-              <NavLink to="/admin/dashboard" className="action-button cart-action-btn" aria-label="Admin dashboard">
+              <NavLink to="/admin/dashboard" className="action-button cart-action-btn desktop-action" aria-label="Admin dashboard">
                 <Shield size={20} />
               </NavLink>
             ) : null}
 
             {isAdmin ? (
-              <NavLink to="/admin/settings" className="action-button cart-action-btn" aria-label="Admin settings">
+              <NavLink to="/admin/settings" className="action-button cart-action-btn desktop-action" aria-label="Admin settings">
                 <Settings size={20} />
               </NavLink>
             ) : null}
 
-            <NavLink to="/wishlist" className="action-button cart-action-btn" aria-label="Wishlist">
+            <NavLink to="/wishlist" className="action-button cart-action-btn desktop-action" aria-label="Wishlist">
               <Heart size={20} />
               {wishlistCount > 0 && <span className="cart-badge">{wishlistCount}</span>}
             </NavLink>
@@ -141,14 +141,21 @@ const Navbar = () => {
               </div>
             )}
 
-            <button className="mobile-menu-btn mobile-only action-button" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <button
+              className="mobile-menu-btn mobile-only action-button"
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
+            >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
-      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+      <div id="mobile-navigation" className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <form className="nav-search-bar w-100 mb-2" onSubmit={handleSearch}>
           <Search className="search-icon" size={18} />
           <input
@@ -165,7 +172,12 @@ const Navbar = () => {
         {isAuthenticated ? <NavLink to="/support" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Support</NavLink> : null}
         {isAdmin ? <NavLink to="/admin/dashboard" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Admin Dashboard</NavLink> : null}
         {isAdmin ? <NavLink to="/admin/settings" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Admin Settings</NavLink> : null}
-        <NavLink to="/wishlist" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Wishlist</NavLink>
+        <NavLink to="/wishlist" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+          Wishlist{wishlistCount > 0 ? ` (${wishlistCount})` : ''}
+        </NavLink>
+        <NavLink to="/cart" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+          Cart{cartItemCount > 0 ? ` (${cartItemCount})` : ''}
+        </NavLink>
         <div className="mobile-actions mt-3">
           {isAuthenticated ? (
             <NavLink
