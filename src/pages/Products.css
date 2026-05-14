@@ -34,6 +34,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  min-width: 0;
 }
 
 .search-icon {
@@ -49,7 +50,7 @@
   border-radius: 9999px;
   color: var(--text-primary);
   width: 100%;
-  min-width: 250px;
+  min-width: 0;
   font-family: inherit;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -161,7 +162,7 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -180,4 +181,40 @@
 
 .mt-4 {
   margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .products-header {
+    gap: 1.25rem;
+  }
+
+  .products-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input {
+    min-height: 44px;
+  }
+
+  .filters-panel {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .categories-pills {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .products-grid {
+    gap: 1.25rem;
+  }
+
+  .no-results {
+    padding: 2.5rem 1rem;
+  }
 }

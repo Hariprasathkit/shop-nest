@@ -162,6 +162,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
 }
 
 .product-rating {
@@ -189,4 +190,27 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--primary-color);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-actions-overlay {
+    transform: translateY(0);
+    opacity: 1;
+    padding: 0.75rem;
+  }
+
+  .quick-add-btn {
+    width: 100%;
+    max-width: 190px;
+  }
+
+  .product-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

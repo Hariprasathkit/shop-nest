@@ -48,9 +48,17 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -619,9 +627,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 640px) {
+  .main-content {
+    padding-top: 72px;
+  }
+
+  .content-container {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    min-height: calc(100vh - 72px);
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-actions,
+  .products-controls,
+  .filter-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .products-controls .search-bar,
+  .products-controls .filter-btn,
+  .filter-actions .btn {
+    width: 100%;
+  }
+
+  .grid-features,
+  .admin-stats-grid,
+  .admin-links-grid {
+    grid-template-columns: 1fr;
+  }
+
   .auth-card,
   .profile-card,
-  .profile-orders-card {
+  .profile-orders-card,
+  .admin-card,
+  .admin-hero,
+  .admin-link-card,
+  .admin-order-card {
     padding: 1.5rem;
     border-radius: 20px;
   }
@@ -630,9 +679,24 @@ h1, h2, h3, h4, h5, h6 {
   .wishlist-card-footer,
   .checkout-item-row,
   .support-ticket-item-top,
-  .support-thread-header {
+  .support-thread-header,
+  .admin-section-header,
+  .admin-order-top,
+  .admin-order-item-row,
+  .admin-order-actions,
+  .profile-detail-row {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .auth-card-header,
+  .profile-header {
+    align-items: flex-start;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
   }
 }
 
