@@ -1,0 +1,20 @@
+[
+  {"id":1,"name":"Sony Noise Cancelling Headphones","category":"Electronics","price":299.99,"rating":4.8,"reviews":1240,"image":"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80"},
+  {"id":2,"name":"Apple AirPods Pro","category":"Electronics","price":249,"rating":4.9,"reviews":3400,"image":"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=500&q=80"},
+  {"id":3,"name":"Samsung Smart TV","category":"Electronics","price":699,"rating":4.7,"reviews":980,"image":"https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=500&q=80"},
+  {"id":4,"name":"Dell XPS Laptop","category":"Electronics","price":1200,"rating":4.8,"reviews":760,"image":"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=500&q=80"},
+  {"id":5,"name":"Wireless Charging Pad","category":"Electronics","price":49.99,"rating":4.5,"reviews":430,"image":"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=500&q=80"},
+
+  {"id":6,"name":"Classic Watch","category":"Accessories","price":145,"rating":4.6,"reviews":850,"image":"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80"},
+  {"id":7,"name":"Leather Wallet","category":"Accessories","price":60,"rating":4.5,"reviews":400,"image":"https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=500&q=80"},
+  {"id":8,"name":"Backpack","category":"Accessories","price":220,"rating":4.7,"reviews":435,"image":"https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=500&q=80"},
+
+  {"id":9,"name":"Nike Air Max","category":"Footwear","price":180,"rating":4.9,"reviews":2100,"image":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80"},
+  {"id":10,"name":"Running Shoes","category":"Footwear","price":130,"rating":4.6,"reviews":700,"image":"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=500&q=80"},
+
+  {"id":11,"name":"Casual T-Shirt","category":"Fashion","price":30,"rating":4.4,"reviews":500,"image":"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80"},
+  {"id":12,"name":"Denim Jacket","category":"Fashion","price":120,"rating":4.7,"reviews":300,"image":"https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=500&q=80"},
+
+  {"id":13,"name":"Lounge Chair","category":"Furniture","price":450,"rating":4.4,"reviews":215,"image":"https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=500&q=80"},
+  {"id":14,"name":"Coffee Table","category":"Furniture","price":250,"rating":4.6,"reviews":300,"image":"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=500&q=80"}
+]

@@ -1,0 +1,22 @@
+{
+  "name": "shopnest-backend",
+  "version": "1.0.0",
+  "description": "Production-ready Express and MongoDB backend for ShopNest",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "reset:admin": "node scripts/resetAdmin.js",
+    "seed:products": "node scripts/seedProducts.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.2",
+    "razorpay": "^2.9.6"
+  }
+}
