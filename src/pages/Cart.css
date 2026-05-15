@@ -399,6 +399,7 @@
   .cart-layout,
   .checkout-layout {
     gap: 1.25rem;
+    margin-top: 1.25rem;
   }
 
   .cart-items-header,
@@ -410,6 +411,12 @@
   }
 
   .cart-item {
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .checkout-item-row {
     align-items: flex-start;
     gap: 1rem;
   }

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingBag, Search, Menu, X, User, ShoppingCart, Sun, Moon, Heart, Shield, Headphones, Settings } from 'lucide-react';
 import { useCart } from '../context/CartContext';
@@ -19,6 +19,14 @@ const Navbar = () => {
   const [searchDraft, setSearchDraft] = useState('');
 
   const displayedSearchQuery = location.pathname === '/products' ? urlSearchQuery : searchDraft;
+
+  useEffect(() => {
+    document.body.classList.toggle('mobile-menu-open', isMobileMenuOpen);
+
+    return () => {
+      document.body.classList.remove('mobile-menu-open');
+    };
+  }, [isMobileMenuOpen]);
 
   const handleSearch = (event) => {
     event.preventDefault();

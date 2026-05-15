@@ -19,7 +19,22 @@
   min-width: 0;
 }
 
+.navbar-left,
+.navbar-right,
+.navbar-actions {
+  min-width: 0;
+}
+
+.navbar-left {
+  flex: 1 1 auto;
+}
+
+.navbar-right {
+  flex: 0 0 auto;
+}
+
 .navbar-brand {
+  min-width: 0;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -174,23 +189,23 @@ html.dark .navbar-brand {
     font-size: 1.25rem;
   }
 
+  .navbar-brand span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .brand-icon {
     width: 22px;
     height: 22px;
-  }
-
-  .navbar-right {
-    min-width: 0;
   }
 
   .navbar-actions {
     gap: 0.25rem !important;
   }
 
-  .navbar-left,
-  .navbar-right,
-  .navbar-actions {
-    min-width: 0;
+  .theme-toggle {
+    display: none;
   }
 
   .action-button {
@@ -210,6 +225,7 @@ html.dark .navbar-brand {
     display: flex;
     flex-direction: column;
     position: fixed;
+    z-index: 1001;
     top: 72px;
     left: 0;
     right: 0;
@@ -222,6 +238,7 @@ html.dark .navbar-brand {
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
     transform: translateY(-10px);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transition: all 0.3s ease;
   }
@@ -229,6 +246,7 @@ html.dark .navbar-brand {
   .mobile-menu.open {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
     pointer-events: all;
   }
 

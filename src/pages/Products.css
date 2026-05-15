@@ -184,6 +184,10 @@
 }
 
 @media (max-width: 640px) {
+  .products-page .content-container {
+    padding-top: 1.25rem;
+  }
+
   .products-header {
     gap: 1.25rem;
   }
@@ -211,7 +215,8 @@
   }
 
   .products-grid {
-    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .no-results {
