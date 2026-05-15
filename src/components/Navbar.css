@@ -165,13 +165,13 @@ html.dark .navbar-brand {
 .mobile-menu { display: none; }
 .desktop-action { display: flex; }
 
-@media (max-width: 1280px) {
+@media (max-width: 1280px), (hover: none), (pointer: coarse) {
   .nav-search-bar {
     max-width: 350px;
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1280px), (hover: none), (pointer: coarse) {
   .desktop-only { display: none !important; }
   .mobile-only { display: flex !important; }
   .desktop-action { display: none !important; }
