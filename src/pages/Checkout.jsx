@@ -19,7 +19,7 @@ const defaultAddress = {
   country: 'India',
 };
 
-const isPaymentGatewayEnabled = false;
+const isPaymentGatewayEnabled = true;
 
 const loadRazorpayScript = () => new Promise((resolve, reject) => {
   if (window.Razorpay) {

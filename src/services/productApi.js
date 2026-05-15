@@ -1,6 +1,9 @@
 import api from './api.js';
 import fallbackProducts from '../data/products.json';
 
+const PRODUCT_CACHE_TTL = 60 * 1000;
+const productCache = new Map();
+
 const defaultDescription = (name) =>
   `Experience premium quality and exceptional design with the ${name}. Expertly crafted to elevate your daily routine and built to last.`;
 
@@ -55,10 +58,26 @@ const applyFallbackFilters = (products, params = {}) => {
   });
 };
 
+const getCacheKey = (params = {}) => JSON.stringify({
+  keyword: String(params.keyword || '').trim(),
+  category: String(params.category || '').trim(),
+  minPrice: String(params.minPrice || '').trim(),
+  maxPrice: String(params.maxPrice || '').trim(),
+});
+
 export const getProducts = async (params = {}) => {
+  const cacheKey = getCacheKey(params);
+  const cached = productCache.get(cacheKey);
+
+  if (cached && Date.now() - cached.createdAt < PRODUCT_CACHE_TTL) {
+    return cached.products;
+  }
+
   try {
     const response = await api.get('/products', { params });
-    return (response.data.products || []).map(normalizeProduct);
+    const products = (response.data.products || []).map(normalizeProduct);
+    productCache.set(cacheKey, { createdAt: Date.now(), products });
+    return products;
   } catch {
     return applyFallbackFilters(fallbackProducts.map(normalizeFallbackProduct), params);
   }

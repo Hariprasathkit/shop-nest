@@ -16,6 +16,7 @@ const Products = () => {
   const [productsLoading, setProductsLoading] = useState(true);
   const [productsError, setProductsError] = useState('');
   const [showFilters, setShowFilters] = useState(false);
+  const [debouncedQueryState, setDebouncedQueryState] = useState(null);
 
   const queryState = useMemo(() => ({
     keyword: searchParams.get('keyword') || searchParams.get('search') || '',
@@ -32,16 +33,28 @@ const Products = () => {
   }, [queryState]);
 
   useEffect(() => {
+    const debounceTimer = window.setTimeout(() => {
+      setDebouncedQueryState(queryState);
+    }, queryState.keyword ? 350 : 0);
+
+    return () => window.clearTimeout(debounceTimer);
+  }, [queryState]);
+
+  useEffect(() => {
+    if (!debouncedQueryState) {
+      return;
+    }
+
     const loadProducts = async () => {
       setProductsLoading(true);
       setProductsError('');
 
       try {
         const data = await getProductsRequest({
-          keyword: queryState.keyword,
-          category: queryState.category === 'All' ? '' : queryState.category,
-          minPrice: queryState.minPrice,
-          maxPrice: queryState.maxPrice,
+          keyword: debouncedQueryState.keyword,
+          category: debouncedQueryState.category === 'All' ? '' : debouncedQueryState.category,
+          minPrice: debouncedQueryState.minPrice,
+          maxPrice: debouncedQueryState.maxPrice,
         });
         setProducts(Array.isArray(data) ? data : []);
       } catch (error) {
@@ -53,7 +66,7 @@ const Products = () => {
     };
 
     loadProducts();
-  }, [queryState]);
+  }, [debouncedQueryState]);
 
   const categories = ['All', ...new Set(products.map((item) => item.category))];
 

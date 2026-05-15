@@ -73,7 +73,7 @@ const validateProductPayload = ({ name, price, image, description, category, sto
 export const getProducts = async (req, res, next) => {
   try {
     const query = buildProductQuery(req.query);
-    const products = await Product.find(query).sort({ createdAt: 1, _id: 1 });
+    const products = await Product.find(query).sort({ createdAt: 1, _id: 1 }).lean();
 
     res.status(200).json({
       products: products.map(normalizeProduct),
@@ -85,7 +85,7 @@ export const getProducts = async (req, res, next) => {
 
 export const getProductById = async (req, res, next) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).lean();
 
     if (!product) {
       return res.status(404).json({ message: 'Product not found.' });
