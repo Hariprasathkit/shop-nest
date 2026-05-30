@@ -240,7 +240,7 @@ html.dark .navbar-brand {
     border: 1px solid var(--border-color);
   }
 
-  .mobile-menu {
+  .navbar .mobile-menu {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -262,7 +262,7 @@ html.dark .navbar-brand {
     transition: all 0.3s ease;
   }
 
-  .mobile-menu.open {
+  .navbar .mobile-menu.open {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
