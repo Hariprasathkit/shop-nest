@@ -169,6 +169,7 @@ html.dark .navbar-brand {
 .navbar .mobile-only { display: none; }
 .navbar .mobile-menu { display: none; }
 .navbar .desktop-action { display: flex; }
+.mobile-navbar-search { display: none; }
 
 @media (max-width: 1180px) {
   .nav-search-bar {
@@ -191,12 +192,14 @@ html.dark .navbar-brand {
   .navbar .desktop-action { display: none !important; }
 
   .navbar {
-    padding: 0 0.75rem;
+    padding: 0 0.75rem 0.75rem;
   }
 
   .navbar-container {
-    height: 72px;
+    min-height: 124px;
     gap: 0.75rem;
+    flex-wrap: wrap;
+    align-content: center;
   }
 
   .navbar-left {
@@ -240,15 +243,24 @@ html.dark .navbar-brand {
     border: 1px solid var(--border-color);
   }
 
+  .mobile-navbar-search {
+    order: 3;
+    display: flex;
+    width: min(100%, 560px);
+    max-width: 560px;
+    min-width: 0;
+    margin: 0 auto;
+  }
+
   .navbar .mobile-menu {
     display: flex;
     flex-direction: column;
     position: fixed;
     z-index: 1001;
-    top: 72px;
+    top: 124px;
     left: 0;
     right: 0;
-    max-height: calc(100vh - 72px);
+    max-height: calc(100vh - 124px);
     overflow-y: auto;
     background: var(--overlay-bg);
     backdrop-filter: blur(16px);

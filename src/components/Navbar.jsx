@@ -161,10 +161,8 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
 
-      <div id="mobile-navigation" className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        <form className="nav-search-bar w-100 mb-2" onSubmit={handleSearch}>
+        <form className="nav-search-bar mobile-navbar-search" onSubmit={handleSearch}>
           <Search className="search-icon" size={18} />
           <input
             type="text"
@@ -174,6 +172,9 @@ const Navbar = () => {
             className="form-control"
           />
         </form>
+      </div>
+
+      <div id="mobile-navigation" className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <NavLink to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink>
         <NavLink to="/products" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Products</NavLink>
         <NavLink to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</NavLink>

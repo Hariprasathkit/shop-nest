@@ -11,10 +11,6 @@ const Layout = () => {
       </main>
       <footer className="footer">
         <div className="footer-inner">
-          <div className="footer-brand">
-            <strong>ShopNest</strong>
-            <p>Premium products for everyday living.</p>
-          </div>
           <div className="footer-links">
             <span>Products</span>
             <span>Support</span>

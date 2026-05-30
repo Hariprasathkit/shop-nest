@@ -677,7 +677,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1024px) {
   .main-content {
-    padding-top: 72px;
+    padding-top: 124px;
   }
 
   .content-container {
@@ -732,7 +732,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 640px) {
   .main-content {
-    padding-top: 72px;
+    padding-top: 124px;
   }
 
   .content-container {
@@ -881,7 +881,7 @@ h1, h2, h3, h4, h5, h6 {
   width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 1rem 2rem;
 }
