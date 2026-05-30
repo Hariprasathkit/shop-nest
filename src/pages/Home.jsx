@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import heroImage from '../assets/hero.png';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -65,6 +66,9 @@ const Home = () => {
             </motion.button>
           </motion.div>
         </div>
+        <motion.div className="hero-media" variants={itemVariants} aria-hidden="true">
+          <img src={heroImage} alt="" />
+        </motion.div>
       </header>
     </motion.div>
   );

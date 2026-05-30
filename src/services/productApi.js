@@ -2,6 +2,7 @@ import api from './api.js';
 import fallbackProducts from '../data/products.json';
 
 const PRODUCT_CACHE_TTL = 60 * 1000;
+const PRODUCT_REQUEST_TIMEOUT_MS = 8000;
 const productCache = new Map();
 
 const defaultDescription = (name) =>
@@ -74,7 +75,10 @@ export const getProducts = async (params = {}) => {
   }
 
   try {
-    const response = await api.get('/products', { params });
+    const response = await api.get('/products', {
+      params,
+      timeout: PRODUCT_REQUEST_TIMEOUT_MS,
+    });
     const products = (response.data.products || []).map(normalizeProduct);
     productCache.set(cacheKey, { createdAt: Date.now(), products });
     return products;

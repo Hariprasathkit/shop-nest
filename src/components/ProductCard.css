@@ -6,6 +6,7 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .product-card:hover {
@@ -45,6 +46,10 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   backdrop-filter: blur(8px);
+  max-width: calc(100% - 72px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-badge.best-seller { background: rgba(245, 158, 11, 0.9); color: #fff; }
@@ -125,6 +130,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0;
 }
 
 .product-category {
@@ -163,6 +169,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .product-rating {
@@ -170,6 +177,7 @@
   align-items: center;
   gap: 0.25rem;
   font-size: 0.85rem;
+  min-width: 0;
 }
 
 .star-icon.filled {
@@ -194,8 +202,12 @@
 }
 
 @media (max-width: 640px) {
+  .product-card {
+    border-radius: 14px;
+  }
+
   .product-info {
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   .product-actions-overlay {
@@ -207,10 +219,45 @@
   .quick-add-btn {
     width: 100%;
     max-width: 190px;
+    min-height: 40px;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.8rem;
   }
 
   .product-meta {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .product-name {
+    margin-bottom: 0.55rem;
+  }
+
+  .product-name h3 {
+    font-size: 0.98rem;
+  }
+
+  .product-price {
+    font-size: 1.05rem;
+  }
+
+  .wishlist-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-name h3 {
+    font-size: 1.05rem;
+  }
+
+  .product-price {
+    font-size: 1.15rem;
   }
 }

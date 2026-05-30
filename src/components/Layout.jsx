@@ -10,7 +10,18 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} ShopNest. Built By Hariprasath</p>
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <strong>ShopNest</strong>
+            <p>Premium products for everyday living.</p>
+          </div>
+          <div className="footer-links">
+            <span>Products</span>
+            <span>Support</span>
+            <span>Secure Checkout</span>
+          </div>
+          <p className="footer-copy">&copy; {new Date().getFullYear()} ShopNest. Built By Hariprasath</p>
+        </div>
       </footer>
     </div>
   );
